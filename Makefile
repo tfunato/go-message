@@ -6,5 +6,13 @@ LDFLAGS := -ldflags="-s -w -X \"main.Version=$(VERSION)\" -X \"main.Revision=$(R
 
 bin/$(NAME): $(SRCS)
 	go build -a -tags studygo -installsuffix go-message $(LDFLAGS) -o bin/$(NAME)
+
 clean:
 	rm -rf bin
+
+.PHONY: watch-server
+watch-server:
+	 docker-compose run --rm --service-ports app
+
+.PHONY: FORCE
+FORCE:

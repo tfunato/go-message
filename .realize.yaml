@@ -1,0 +1,23 @@
+settings:
+  legacy:
+    force: false
+    interval: 0s
+schema:
+- name: myapp
+  path: .
+  commands:
+    build:
+      status: true
+      method: make
+    run:
+      status: true
+      method: bin/go-message
+  watcher:
+    extensions:
+    - go
+    paths:
+    - /
+    ignored_paths:
+    - .git
+    - .realize
+    - vendor
